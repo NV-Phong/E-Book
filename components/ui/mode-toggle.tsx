@@ -55,7 +55,7 @@ export function ModeToggle({
                   className="fixed inset-0 backdrop-blur-[10px] z-3000"
                   onClick={() => setOpen(false)}
                />,
-               document.body
+               document.body,
             )}
 
          <DropdownMenuTrigger asChild>
@@ -85,27 +85,27 @@ export function ModeToggle({
                   {renderPastel(
                      "Pink",
                      "pastel-pink",
-                     "bg-[oklch(0.79_0.1226_20.19)]"
+                     "bg-[oklch(0.79_0.1226_20.19)]",
                   )}
                   {renderPastel(
                      "Green",
                      "pastel-green",
-                     "bg-[oklch(0.83_0.1354_129.16)]"
+                     "bg-[oklch(0.83_0.1354_129.16)]",
                   )}
                   {renderPastel(
                      "Blue",
                      "pastel-blue",
-                     "bg-[oklch(0.7437_0.1205_252.42)]"
+                     "bg-[oklch(0.7437_0.1205_252.42)]",
                   )}
                   {renderPastel(
                      "Violet",
                      "pastel-violet",
-                     "bg-[oklch(0.773_0.1514_308.03)]"
+                     "bg-[oklch(0.773_0.1514_308.03)]",
                   )}
                   {renderPastel(
                      "Orange",
                      "pastel-orange",
-                     "bg-[oklch(82.008%_0.11054_77.538)]"
+                     "bg-[oklch(82.008%_0.11054_77.538)]",
                   )}
                </DropdownMenuSubContent>
             </DropdownMenuSub>

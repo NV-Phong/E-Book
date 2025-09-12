@@ -38,7 +38,7 @@ export default function UIEngineer() {
    useEffect(() => {
       const typedRoutesData = routesData as RoutesData;
       const uiRoute = typedRoutesData.routes.find(
-         (route) => route.path === "ui-engineer"
+         (route) => route.path === "ui-engineer",
       );
       const uiPaths = uiRoute?.children ? extractPaths(uiRoute.children) : [];
       setItems(uiPaths);
@@ -47,7 +47,7 @@ export default function UIEngineer() {
    useEffect(() => {
       const typedRoutesData = routesData as RoutesData;
       const apiRoute = typedRoutesData.api.find(
-         (route) => route.path === "api"
+         (route) => route.path === "api",
       );
       const apiPaths = apiRoute?.children
          ? extractPaths(apiRoute.children)
@@ -166,7 +166,7 @@ export default function UIEngineer() {
                                  <Link
                                     href={`/api/${item.replace(
                                        /\[.*?\]/g,
-                                       ":id"
+                                       ":id",
                                     )}`}
                                     className="text-gray-950 underline decoration-primary dark:decoration-primary-foreground-1 underline-offset-3 hover:decoration-2 dark:text-white"
                                  >

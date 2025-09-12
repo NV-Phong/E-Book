@@ -13,7 +13,7 @@ export async function middleware(req: NextRequest) {
    if (
       !user &&
       !EXCEPTION_PREFIXES.some((route) =>
-         req.nextUrl.pathname.startsWith(route)
+         req.nextUrl.pathname.startsWith(route),
       )
    ) {
       return NextResponse.redirect(new URL("/auth", req.url));

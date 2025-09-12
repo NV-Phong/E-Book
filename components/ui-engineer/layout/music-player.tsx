@@ -26,7 +26,8 @@ export function MusicPlayer() {
    const [isCollapsed, setIsCollapsed] = useState(true);
    const [isRepeat, setIsRepeat] = useState(false);
    const [isShuffle, setIsShuffle] = useState(false);
-   const [isCursorEnabled, 
+   const [
+      isCursorEnabled,
       // setIsCursorEnabled
    ] = useState(false);
    const audioRef = useRef<HTMLAudioElement>(null);
@@ -65,7 +66,7 @@ export function MusicPlayer() {
       } else {
          setCurrentTrack(
             (prevTrack) =>
-               (prevTrack + (forward ? 1 : -1) + tracks.length) % tracks.length
+               (prevTrack + (forward ? 1 : -1) + tracks.length) % tracks.length,
          );
       }
       setProgress(0);
@@ -139,7 +140,7 @@ export function MusicPlayer() {
             </Button>
          </div>
       ),
-      [currentTrack, isPlaying, toggleCollapse, tracks]
+      [currentTrack, isPlaying, toggleCollapse, tracks],
    );
 
    return (
@@ -182,7 +183,7 @@ export function MusicPlayer() {
                                  name="cursor-magic-selection-02-solid-standard"
                               />
                            </Button> */}
-                           <Settings/>
+                           <Settings />
                            <ModeToggle buttonStyle="bg-transparent dark:border-primary/10" />
                            <Button
                               variant="outline"

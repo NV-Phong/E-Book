@@ -1,9 +1,6 @@
 "use client";
 import { useState } from "react";
-import {
-   Tabs,
-   TabsContent,
-} from "@/components/ui/tabs";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import {
    Card,
    CardContent,

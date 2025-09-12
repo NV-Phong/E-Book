@@ -33,7 +33,9 @@ export default function Chat() {
                            <code className="text-primary-foreground-1 -mb-2">
                               404
                            </code>
-                           <p className="text-2xl uppercase">Terms of Service</p>
+                           <p className="text-2xl uppercase">
+                              Terms of Service
+                           </p>
                         </CardTitle>
                         <CardDescription className="text-foreground">
                            You&apos;re lost but hey, at least you found this

@@ -19,7 +19,7 @@ export async function POST(request: Request) {
    if (!target_user_id) {
       return NextResponse.json(
          { error: "Missing target_user_id" },
-         { status: 400 }
+         { status: 400 },
       );
    }
 
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
       if (userConvsError) {
          return NextResponse.json(
             { error: userConvsError.message },
-            { status: 400 }
+            { status: 400 },
          );
       }
 
@@ -44,14 +44,14 @@ export async function POST(request: Request) {
       if (targetConvsError) {
          return NextResponse.json(
             { error: targetConvsError.message },
-            { status: 400 }
+            { status: 400 },
          );
       }
 
       const common = userConvs
          .map((c) => c.conversation_id)
          .filter((id) =>
-            targetConvs.map((t) => t.conversation_id).includes(id)
+            targetConvs.map((t) => t.conversation_id).includes(id),
          );
 
       let conversation;
@@ -68,7 +68,7 @@ export async function POST(request: Request) {
          if (convError || !newConversation) {
             return NextResponse.json(
                { error: convError?.message || "Failed to create conversation" },
-               { status: 400 }
+               { status: 400 },
             );
          }
 
@@ -92,7 +92,7 @@ export async function POST(request: Request) {
          if (partError) {
             return NextResponse.json(
                { error: partError.message },
-               { status: 400 }
+               { status: 400 },
             );
          }
       }

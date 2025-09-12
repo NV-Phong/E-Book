@@ -88,10 +88,10 @@ export default function Chat() {
             const profiles: Profile[] = Array.isArray(data)
                ? data
                : Array.isArray(data.data)
-               ? data.data
-               : Array.isArray(data.profiles)
-               ? data.profiles
-               : [];
+                 ? data.data
+                 : Array.isArray(data.profiles)
+                   ? data.profiles
+                   : [];
 
             const apiConversations: Conversation[] = profiles
                .filter((p) => !p.is_deleted)
@@ -111,8 +111,8 @@ export default function Chat() {
                ...apiConversations.filter(
                   (apiConv) =>
                      !STATIC_CONVERSATIONS.some(
-                        (staticConv) => staticConv.id === apiConv.id
-                     )
+                        (staticConv) => staticConv.id === apiConv.id,
+                     ),
                ),
             ];
 
@@ -127,7 +127,7 @@ export default function Chat() {
             setMessages(combinedMessages);
          } catch (err) {
             setError(
-               err instanceof Error ? err.message : "Failed to fetch profiles"
+               err instanceof Error ? err.message : "Failed to fetch profiles",
             );
             console.error(err);
          } finally {
@@ -194,8 +194,8 @@ export default function Chat() {
                     lastMessage: newMessage.trim(),
                     timestamp: "Just now",
                  }
-               : conv
-         )
+               : conv,
+         ),
       );
 
       setTimeout(() => {
@@ -296,7 +296,7 @@ export default function Chat() {
                                        className="flex items-center border border-primary/15 bg-primary/5 space-x-3 p-3 rounded-lg hover:bg-primary/15 cursor-pointer transition-colors"
                                        onClick={() =>
                                           handleConversationClick(
-                                             conversation.id
+                                             conversation.id,
                                           )
                                        }
                                     >
@@ -544,7 +544,7 @@ export default function Chat() {
 
                                           <div ref={messagesEndRef} />
                                        </div>
-                                    )
+                                    ),
                                  )}
                            </div>
                         </ScrollArea>

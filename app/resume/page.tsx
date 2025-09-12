@@ -126,7 +126,7 @@ export default function Resume() {
                                        onCheckedChange={(checked) =>
                                           handleCheckboxChange(
                                              "light",
-                                             !!checked
+                                             !!checked,
                                           )
                                        }
                                        className="data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white dark:data-[state=checked]:border-primary/10 dark:data-[state=checked]:bg-primary/30"
@@ -170,7 +170,7 @@ export default function Resume() {
                                        onCheckedChange={(checked) =>
                                           handleCheckboxChange(
                                              "dark",
-                                             !!checked
+                                             !!checked,
                                           )
                                        }
                                        className="data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-white dark:data-[state=checked]:border-primary/10 dark:data-[state=checked]:bg-primary/30"

@@ -130,10 +130,10 @@ export default function BlobUploadFile() {
    }, []);
 
    const graphicFiles = files.filter((f) =>
-      /\.(png|jpg|jpeg|gif|svg|webp|ico)$/i.test(f.pathname)
+      /\.(png|jpg|jpeg|gif|svg|webp|ico)$/i.test(f.pathname),
    );
    const otherFiles = files.filter(
-      (f) => !/\.(png|jpg|jpeg|gif|svg|webp|ico)$/i.test(f.pathname)
+      (f) => !/\.(png|jpg|jpeg|gif|svg|webp|ico)$/i.test(f.pathname),
    );
 
    return (
@@ -347,7 +347,7 @@ export default function BlobUploadFile() {
                                                                onClick={() => {
                                                                   const a =
                                                                      document.createElement(
-                                                                        "a"
+                                                                        "a",
                                                                      );
                                                                   a.href =
                                                                      file.downloadUrl ||
@@ -376,7 +376,7 @@ export default function BlobUploadFile() {
                                                                onClick={() =>
                                                                   window.open(
                                                                      file.url,
-                                                                     "_blank"
+                                                                     "_blank",
                                                                   )
                                                                }
                                                             >
@@ -399,10 +399,10 @@ export default function BlobUploadFile() {
                                                                onClick={async () => {
                                                                   try {
                                                                      await navigator.clipboard.writeText(
-                                                                        file.url
+                                                                        file.url,
                                                                      );
                                                                      setCopiedFile(
-                                                                        file.pathname
+                                                                        file.pathname,
                                                                      );
                                                                   } catch {}
                                                                }}

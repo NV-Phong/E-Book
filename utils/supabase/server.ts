@@ -19,7 +19,7 @@ export async function createClient() {
                         ...options,
                         httpOnly: true,
                         secure: process.env.NODE_ENV === "production",
-                     })
+                     }),
                   );
                } catch {
                   // The `setAll` method was called from a Server Component.
@@ -28,6 +28,6 @@ export async function createClient() {
                }
             },
          },
-      }
+      },
    );
 }

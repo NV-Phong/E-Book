@@ -42,7 +42,7 @@ export function Settings() {
                   className="fixed inset-0 backdrop-blur-[10px] z-[49]"
                   onClick={() => setOpen(false)}
                />,
-               document.body
+               document.body,
             )}
          <Popover open={open} onOpenChange={setOpen}>
             <PopoverTrigger asChild>

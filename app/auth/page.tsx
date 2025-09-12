@@ -106,7 +106,7 @@ export default function Auth() {
                   } Sign-In failed`,
                {
                   description: "Please try again!",
-               }
+               },
             );
          }
       } finally {

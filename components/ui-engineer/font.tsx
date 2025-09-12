@@ -73,7 +73,7 @@ export function Font() {
                            value={font.value}
                            onSelect={(currentValue) => {
                               setValue(
-                                 currentValue === value ? "" : currentValue
+                                 currentValue === value ? "" : currentValue,
                               );
                               setOpen(false);
                            }}
@@ -84,7 +84,7 @@ export function Font() {
                                  "ml-auto",
                                  value === font.value
                                     ? "opacity-100"
-                                    : "opacity-0"
+                                    : "opacity-0",
                               )}
                            />
                         </CommandItem>
