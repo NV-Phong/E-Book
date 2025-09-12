@@ -1,0 +1,123 @@
+{
+   "conversations": [
+      {
+         "id": "crush",
+         "name": "Crush",
+         "username": "crush",
+         "avatar": "https://i.pinimg.com/736x/e6/6e/e1/e66ee1e05d9f35766fb6f28a2ac3bcc0.jpg",
+         "lastMessage": "Crush đã rời khỏi cuộc trò chuyện",
+         "timestamp": "Just now",
+         "unreadCount": 1,
+         "online": true
+      }
+   ],
+   "messages": {
+      "crush": [
+         {
+            "id": 1,
+            "text": "She calls you baby",
+            "sender": "Crush",
+            "timestamp": "10:00 AM",
+            "isMe": false
+         },
+         {
+            "id": 2,
+            "text": "Drives you mad with all the",
+            "sender": "Crush",
+            "timestamp": "10:01 AM",
+            "isMe": false
+         },
+         {
+            "id": 3,
+            "text": "Crazy kind of maybes",
+            "sender": "Me",
+            "timestamp": "10:02 AM",
+            "isMe": true
+         },
+         {
+            "id": 4,
+            "text": "Mmmm",
+            "sender": "Me",
+            "timestamp": "10:03 AM",
+            "isMe": true
+         },
+         {
+            "id": 5,
+            "text": "She plays you easy",
+            "sender": "Crush",
+            "timestamp": "10:04 AM",
+            "isMe": false
+         },
+         {
+            "id": 6,
+            "text": "End up covered with her fingerprints",
+            "sender": "Crush",
+            "timestamp": "10:05 AM",
+            "isMe": false
+         },
+         {
+            "id": 7,
+            "text": "At her place",
+            "sender": "Me",
+            "timestamp": "10:06 AM",
+            "isMe": true
+         },
+         {
+            "id": 8,
+            "text": "Mmmm",
+            "sender": "Me",
+            "timestamp": "10:07 AM",
+            "isMe": true
+         },
+         {
+            "id": 9,
+            "text": "You do it again",
+            "sender": "Crush",
+            "timestamp": "10:08 AM",
+            "isMe": false
+         },
+         {
+            "id": 10,
+            "text": "You do it again",
+            "sender": "Crush",
+            "timestamp": "10:09 AM",
+            "isMe": false
+         },
+         {
+            "id": 11,
+            "text": "Another regret",
+            "sender": "Me",
+            "timestamp": "10:10 AM",
+            "isMe": true
+         },
+         {
+            "id": 12,
+            "text": "But you play pretend",
+            "sender": "Crush",
+            "timestamp": "10:11 AM",
+            "isMe": false
+         },
+         {
+            "id": 13,
+            "text": "She'll say it again",
+            "sender": "Me",
+            "timestamp": "10:12 AM",
+            "isMe": true
+         },
+         {
+            "id": 14,
+            "text": "She'll say it again",
+            "sender": "Me",
+            "timestamp": "10:13 AM",
+            "isMe": true
+         },
+         {
+            "id": 15,
+            "text": "Oh, why can't we just stay friends?",
+            "sender": "Crush",
+            "timestamp": "10:14 AM",
+            "isMe": false
+         }
+      ]
+   }
+}

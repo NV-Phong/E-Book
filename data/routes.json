@@ -1,0 +1,56 @@
+{
+   "routes": [
+      {
+         "path": "ui-engineer",
+         "children": [
+            {
+               "path": "cpu-architecture"
+            },
+            {
+               "path": "display-cards"
+            },
+            {
+               "path": "hooks-test-zone"
+            },
+            {
+               "path": "media-viewer"
+            },
+            {
+               "path": "storage",
+               "children": [
+                  {
+                     "path": "blob"
+                  }
+               ]
+            },
+            {
+               "path": "supabase"
+            },
+            {
+               "path": "upgrade-banner"
+            }
+         ]
+      },
+      {
+         "path": "auth"
+      }
+   ],
+   "api": [
+      {
+         "path": "api",
+         "children": [
+            {
+               "path": "supabase",
+               "children": [
+                  {
+                     "path": "me"
+                  },
+                  {
+                     "path": "users"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}

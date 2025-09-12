@@ -1,0 +1,56 @@
+<h1 align="center">NV-PHONG</h1>
+
+### INTRODUCE
+
+The **NV-Phong** project is a web application built using NextJS, designed to provide a modern and efficient user experience, and deployed on Vercel for seamless hosting and scalability.
+
+### PROJECT STRUCTURE
+
+```
+NV-Phong/
+◉ .next/             # Auto-generated build output by NextJS
+◉ app/               # Core application code (NextJS App Router)
+◉ components/        # Reusable UI components
+◉ context/           # React Context providers for global state management
+◉ data/              # Static or mock data used for testing, seeding, or demo content
+◉ docs/              # Project-related documentation (guides, ADRs, API docs, etc.)
+◉ hooks/             # Custom React hooks for encapsulating reusable logic
+◉ lib/               # Utility functions and shared logic
+◉ public/            # Static assets (images, fonts, etc.)
+◉ schemas/           # Validation schemas (e.g., Zod, Yup) or database schema definitions
+◉ services/          # API service functions or external integrations (fetching, auth, etc.)
+◉ styles/            # Global CSS, Tailwind, or module-based styles
+◉ types/             # TypeScript type definitions and interfaces
+◉ utils/             # Helper functions and generic utilities
+◉ .env               # Environment variables
+◉ .gitignore         # Files and folders to ignore in Git
+◉ .prettierrc        # Prettier configuration for code formatting
+◉ components.json    # Configuration for component libraries (if applicable)
+◉ eslint.config.mjs  # ESLint configuration for linting
+◉ next-env.d.ts      # TypeScript declaration file for NextJS
+◉ next.config.ts     # NextJS configuration file (TypeScript version)
+◉ package.json       # Project dependencies and scripts
+◉ pnpm-lock.yaml     # Lock file for pnpm package manager
+◉ postcss.config.mjs # PostCSS configuration for styling
+◉ README.md          # Project documentation and setup guide
+◉ tsconfig.json      # TypeScript configuration file
+```
+
+### RUN PROJECT
+
+```sh
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open `http://localhost:3000` with your browser to see the result.
+
+### AUTHOR
+
+-  **NV-Phong**
+-  Email: `nv.phong.pro@gmail.com`
