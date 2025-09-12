@@ -7,7 +7,6 @@ export function useAPI<T = any>(url: string, immediate: boolean = true) {
    const [data, setData] = useState<T | null>(null);
    const [loading, setLoading] = useState<boolean>(false);
    const [error, setError] = useState<any>(null);
-
    const fetchData = async () => {
       setLoading(true);
       setError(null);
@@ -20,7 +19,7 @@ export function useAPI<T = any>(url: string, immediate: boolean = true) {
          setLoading(false);
       }
    };
-
+   
    useEffect(() => {
       if (immediate) {
          fetchData();
