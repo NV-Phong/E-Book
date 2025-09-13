@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Button } from "./button";
 import Image from "next/image";
+import { Badge } from "./badge";
 
 interface ExpandableCardProps {
    title: string;
@@ -14,6 +15,7 @@ interface ExpandableCardProps {
    children?: React.ReactNode;
    className?: string;
    classNameExpanded?: string;
+   price?: string;
 }
 
 export function ExpandableCard({
@@ -23,6 +25,7 @@ export function ExpandableCard({
    children,
    className,
    classNameExpanded,
+   price,
 }: ExpandableCardProps) {
    const [active, setActive] = React.useState(false);
    const cardRef = React.useRef<HTMLDivElement>(null);
@@ -176,12 +179,17 @@ export function ExpandableCard({
                </motion.div>
                <div className="flex items-center justify-between gap-15 -mb-1.5">
                   <div className="flex flex-col">
-                     <motion.p
-                        layoutId={`description-${description}-${id}`}
-                        className="text-sm font-medium text-zinc-500 md:text-left dark:text-zinc-400"
-                     >
-                        {description}
-                     </motion.p>
+                     <div className="flex gap-2">
+                        <motion.p
+                           layoutId={`description-${description}-${id}`}
+                           className="text-sm font-medium text-zinc-500 md:text-left dark:text-zinc-400"
+                        >
+                           {description}
+                        </motion.p>
+                        <Badge className="text-primary-foreground-darker bg-primary/10 rounded-sm border-primary/20">
+                           {price ?? "2.000 VND"}
+                        </Badge>
+                     </div>
                      <motion.h3
                         layoutId={`title-${title}-${id}`}
                         className="font-semibold text-black md:text-left dark:text-white"
