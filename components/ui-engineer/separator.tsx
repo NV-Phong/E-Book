@@ -6,6 +6,7 @@ type SeparatorProps = {
    showChildren?: boolean;
    verticalTextDirection?: "left" | "right";
    textPosition?: "start" | "center" | "end";
+   spanClassName?: string; // thêm prop mới
 };
 
 export default function Separator({
@@ -14,8 +15,8 @@ export default function Separator({
    showChildren = true,
    verticalTextDirection = "right",
    textPosition = "center",
+   spanClassName = "",
 }: SeparatorProps) {
-   // Get positioning classes based on orientation and textPosition
    const getPositionClasses = () => {
       if (orientation === "vertical") {
          switch (textPosition) {
@@ -53,7 +54,7 @@ export default function Separator({
                         verticalTextDirection === "left"
                            ? "-rotate-90"
                            : "rotate-90"
-                     }`}
+                     } ${spanClassName}`}
                   >
                      {children}
                   </span>
@@ -72,7 +73,9 @@ export default function Separator({
             <div
                className={`relative flex text-xs uppercase ${getPositionClasses()}`}
             >
-               <span className="bg-card text-primary-foreground-darker/75 px-2">
+               <span
+                  className={`bg-card text-primary-foreground-darker/75 px-2 ${spanClassName}`}
+               >
                   {children}
                </span>
             </div>
