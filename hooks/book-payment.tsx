@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 export function useBookPayment(title: string, amount: number) {
    const containerRef = useRef<HTMLDivElement>(null);
    const [checkoutUrl, setCheckoutUrl] = useState("");
+   const [paymentLinkId, setPaymentLinkId] = useState("");
    const [isLoading, setIsLoading] = useState(false);
    const router = useRouter();
 
@@ -26,7 +27,6 @@ export function useBookPayment(title: string, amount: number) {
          );
 
          await new Promise((r) => setTimeout(r, 50));
-
          router.push("/success");
       },
    });
@@ -52,12 +52,31 @@ export function useBookPayment(title: string, amount: number) {
                cancelUrl: window.location.href,
             }),
          });
+
          const data = await res.json();
          setCheckoutUrl(data.checkoutUrl);
+         setPaymentLinkId(data.paymentLinkId);
       } catch (err) {
          console.error(err);
       } finally {
          setIsLoading(false);
+      }
+   };
+
+   const handleClose = async () => {
+      if (!paymentLinkId) return;
+
+      try {
+         await fetch("/api/v1/payment/cancel", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ paymentLinkId }),
+         });
+      } catch (err) {
+         console.error("Lỗi khi hủy link thanh toán:", err);
+      } finally {
+         setCheckoutUrl("");
+         setPaymentLinkId("");
       }
    };
 
@@ -66,5 +85,6 @@ export function useBookPayment(title: string, amount: number) {
       checkoutUrl,
       isLoading,
       handlePayment,
+      handleClose,
    };
 }

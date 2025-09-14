@@ -6,16 +6,12 @@ import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";
 import { CreditCard, QrCode, Smartphone, Shield, Clock } from "lucide-react";
 import Icon from "./ui-engineer/Icon";
-import { useBookPayment } from "@/hooks/book-payment";
 import { useEffect } from "react";
-
-interface BookPaymentProps {
-   title: string;
-   amount: number;
-}
+import { useBookPayment } from "@/hooks/book-payment";
+import BookPaymentProps from "@/types/book-payment";
 
 export function BookPayment({ title, amount }: BookPaymentProps) {
-   const { containerRef, checkoutUrl, isLoading, handlePayment } =
+   const { containerRef, checkoutUrl, isLoading, handlePayment, handleClose } =
       useBookPayment(title, amount);
 
    useEffect(() => {
@@ -32,6 +28,7 @@ export function BookPayment({ title, amount }: BookPaymentProps) {
                Thông tin thanh toán
             </CardTitle>
          </CardHeader>
+
          <CardContent className="space-y-4">
             <div className="flex items-center justify-between p-4 bg-background/50 rounded-lg border">
                <div>
@@ -79,11 +76,15 @@ export function BookPayment({ title, amount }: BookPaymentProps) {
             </div>
 
             <Button
-               onClick={handlePayment}
+               onClick={checkoutUrl ? handleClose : handlePayment}
                className="w-full"
                disabled={isLoading}
             >
-               {isLoading ? "Đang xử lý..." : "Thanh Toán Ngay"}
+               {isLoading
+                  ? "Đang xử lý..."
+                  : checkoutUrl
+                  ? "Đóng"
+                  : "Thanh Toán Ngay"}
             </Button>
 
             <div

@@ -1,6 +1,6 @@
 "use client";
 
-import { BookPayment } from "@/components/book-payment";
+import { BookPayment } from "@/components/book";
 import GradualSpacing from "@/components/magicui/gradual-spacing";
 import Particles from "@/components/magicui/particles";
 import Icon from "@/components/ui-engineer/Icon";
