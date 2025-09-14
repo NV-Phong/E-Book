@@ -40,7 +40,7 @@ export function useBookPayment(title: string, amount: number) {
    const handlePayment = async () => {
       setIsLoading(true);
       try {
-         const res = await fetch("/api/next/payment", {
+         const res = await fetch("/api/v1/payment", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({

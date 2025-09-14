@@ -32,7 +32,7 @@ export function usePaymentSuccess() {
             }
          }
 
-         fetch("/api/supabase/storage/book")
+         fetch("/api/storage/book")
             .then((res) => res.json())
             .then((data) => {
                if (data.url) {

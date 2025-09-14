@@ -4,9 +4,14 @@ const nextConfig: NextConfig = {
    async rewrites() {
       return [
          {
+            source: "/api/v1/:path*",
+            destination: "/api/next/:path*",
+         },
+         {
             source: "/api/:path*",
             destination: "/api/supabase/:path*",
          },
+         
       ];
    },
 
