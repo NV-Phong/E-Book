@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import {
    Card,
@@ -10,9 +11,7 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import Cookies from "js-cookie";
-import { toast } from "sonner";
+import React, { useState } from "react";
 import {
    InputOTP,
    InputOTPGroup,
@@ -20,69 +19,12 @@ import {
    InputOTPSlot,
 } from "@/components/ui/input-otp";
 import Separator from "@/components/ui-engineer/separator";
+import { usePaymentSuccess } from "@/hooks/payment-success";
 
 export default function Success() {
    const router = useRouter();
    const [currentTab, setCurrentTab] = useState("success");
-   const [downloadUrl, setDownloadUrl] = useState<string | null>(null);
-   const [paid, setPaid] = useState(false);
-   const [timeLeft, setTimeLeft] = useState<number>(0);
-
-   useEffect(() => {
-      const raw = Cookies.get("payment-success");
-      if (raw) {
-         setPaid(true);
-         try {
-            const data = JSON.parse(raw);
-            toast.success("Thanh toán thành công 🎉", {
-               description: `Mã đơn hàng: ${data.orderCode}`,
-            });
-         } catch {
-            toast.success("Thanh toán thành công 🎉");
-         }
-
-         const cache = Cookies.get("download-link");
-         if (cache) {
-            const { url, expiredAt } = JSON.parse(cache);
-            if (Date.now() < expiredAt) {
-               setDownloadUrl(url);
-               setTimeLeft(Math.floor((expiredAt - Date.now()) / 1000));
-               return;
-            }
-         }
-
-         fetch("/api/supabase/storage/book")
-            .then((res) => res.json())
-            .then((data) => {
-               if (data.url) {
-                  const expiredAt = Date.now() + 30 * 60 * 1000;
-                  Cookies.set(
-                     "download-link",
-                     JSON.stringify({ url: data.url, expiredAt }),
-                     { expires: 1 / 48 }
-                  );
-                  setDownloadUrl(data.url);
-                  setTimeLeft(1800);
-               }
-            });
-      }
-   }, []);
-
-   useEffect(() => {
-      if (!timeLeft) return;
-      const timer = setInterval(() => {
-         setTimeLeft((prev) => (prev > 0 ? prev - 1 : 0));
-      }, 1000);
-      return () => clearInterval(timer);
-   }, [timeLeft]);
-
-   const formatTime = (seconds: number) => {
-      const m = Math.floor(seconds / 60)
-         .toString()
-         .padStart(2, "0");
-      const s = (seconds % 60).toString().padStart(2, "0");
-      return `${m}:${s}`;
-   };
+   const { paid, downloadUrl, timeLeft, formatTime } = usePaymentSuccess();
 
    return (
       <div className="relative grid min-h-screen grid-cols-[1fr_2.5rem_auto_2.5rem_1fr] grid-rows-[1fr_1px_auto_1px_1fr] [--pattern-fg:var(--color-gray-950)]/5 dark:[--pattern-fg:var(--color-white)]/10">
@@ -105,9 +47,7 @@ export default function Success() {
                         </CardDescription>
                      </CardHeader>
 
-                     {paid && (
-                        <Separator>Link sẽ hết hạn sau :</Separator>
-                     )}
+                     {paid && <Separator>Link sẽ hết hạn sau</Separator>}
 
                      <CardContent className="space-y-2 p-0 flex flex-col items-center">
                         {paid ? (
