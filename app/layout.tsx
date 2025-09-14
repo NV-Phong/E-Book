@@ -40,7 +40,7 @@ export default function RootLayout({
          <body>
             <ThemeProvider
                attribute="class"
-               defaultTheme="pastel-green"
+               defaultTheme="pastel-orange"
                enableSystem
                disableTransitionOnChange
                themes={[
