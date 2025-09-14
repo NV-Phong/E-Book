@@ -11,7 +11,11 @@ const nextConfig: NextConfig = {
             source: "/api/:path*",
             destination: "/api/supabase/:path*",
          },
-         
+         {
+            source: "/video-demo",
+            destination:
+               "https://qq90n93onn5q8tmx.public.blob.vercel-storage.com/files/E-Book%20Demo.mp4",
+         },
       ];
    },
 
