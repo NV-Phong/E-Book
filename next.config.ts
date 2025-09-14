@@ -41,6 +41,11 @@ const nextConfig: NextConfig = {
             hostname: "aiebp.edu.vn",
             pathname: "/**",
          },
+         {
+            protocol: "https",
+            hostname: "i.pinimg.com",
+            pathname: "/**",
+         },
       ],
    },
 };

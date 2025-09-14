@@ -2,9 +2,9 @@
 
 import { BookPayment } from "@/components/book-payment";
 import Particles from "@/components/magicui/particles";
-import { CommitChanges } from "@/components/ui-engineer/commit-changes";
-import CommitsPerDay from "@/components/ui-engineer/commits-per-day";
-import { DatePicker } from "@/components/ui-engineer/range-date-picker";
+import Icon from "@/components/ui-engineer/Icon";
+import { Library } from "@/components/ui-engineer/library";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
    Card,
@@ -15,7 +15,6 @@ import {
    CardTitle,
 } from "@/components/ui/card";
 import { ExpandableCard } from "@/components/ui/expandable-card";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
@@ -56,7 +55,7 @@ export default function NotFound() {
                </TabsTrigger>
             </TabsList>
 
-            <div className="flex max-w-xl flex-col bg-primary/20 p-2 dark:bg-white/10">
+            <div className="flex w-auto flex-col bg-primary/20 p-2 dark:bg-white/10">
                <TabsContent value="best-seller" className="flex justify-center">
                   <Card className="rounded-2xl bg-card p-10 text-sm/7 text-foreground shadow-none border-none">
                      <CardHeader className="p-0">
@@ -101,26 +100,27 @@ export default function NotFound() {
                </TabsContent>
 
                <TabsContent value="library" className="flex justify-center">
-                  <Card className="w-xl border-none shadow-none">
+                  <Card className="w-2xl border-none shadow-none">
                      <CardHeader>
-                        <CardTitle className="text-xl text-foreground uppercase">
-                           Library
+                        <CardTitle className=" flex justify-between">
+                           <p className="text-2xl uppercase">Library</p>
+                           <Badge className="h-6 text-[10px] text-primary-foreground-darker bg-primary/10 rounded-sm border-primary/20">
+                              <Icon
+                                 size={12}
+                                 styles="bulk"
+                                 className="!bg-primary-foreground-darker"
+                                 name="start-up"
+                              />
+                              Coming Soon
+                           </Badge>
                         </CardTitle>
                         <CardDescription className="text-foreground">
-                           Double-check to pick the correct commit dates, or
-                           you&apos;ll need extra commits to fix the wrong ones.
+                           This feature is under development
                         </CardDescription>
                      </CardHeader>
                      <CardContent className="space-y-4">
                         <div className="space-y-2 flex justify-between">
-                           <div className="space-y-2">
-                              <Label>Stack Dates</Label>
-                              <DatePicker />
-                           </div>
-                           <div className="space-y-2">
-                              <Label>Commits Per Day</Label>
-                              <CommitsPerDay />
-                           </div>
+                           <Library />
                         </div>
                      </CardContent>
                      <CardFooter className="align justify-between">
@@ -131,7 +131,14 @@ export default function NotFound() {
                         >
                            Clear
                         </Button>
-                        <CommitChanges />
+                        <Button
+                           variant="outline"
+                           className="w-2/5"
+                           type="button"
+                           disabled
+                        >
+                           Go to Payment
+                        </Button>
                      </CardFooter>
                   </Card>
                </TabsContent>
