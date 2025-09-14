@@ -1,6 +1,7 @@
 "use client";
 
 import { BookPayment } from "@/components/book-payment";
+import GradualSpacing from "@/components/magicui/gradual-spacing";
 import Particles from "@/components/magicui/particles";
 import Icon from "@/components/ui-engineer/Icon";
 import { Library } from "@/components/ui-engineer/library";
@@ -41,6 +42,30 @@ export default function NotFound() {
                refresh
             />
          )}
+
+         <div className="flex items-center justify-center col-start-3 row-start-1">
+            <div className="flex flex-col items-center justify-center">
+               <div className="mb-9 mt-15 max-w-7xl mx-auto w-full pt-20 md:pt-0 text-center">
+                  <h1 className="h-40 text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-400 to-neutral-900 bg-opacity-50">
+                     Wellcome to !
+                     <GradualSpacing
+                        className="font-display text-center text-5xl font-bold -tracking-widest text-neutral-900 dark:text-neutral-200 md:text-7xl md:leading-[5rem]"
+                        text="E-Book"
+                     />
+                     <br />
+                  </h1>
+                  <p className="font-normal text-base text-neutral-700 max-w-3xl mx-auto dark:text-neutral-500">
+                     This is a place where stories, knowledge, and creativity
+                     meet. Here you can explore a wide range of books, from
+                     inspiring tales to practical guides, all designed to help
+                     you learn, grow, and enjoy the world of reading. Whether
+                     for study, work, or relaxation, E-Book is your companion
+                     anytime, anywhere.
+                  </p>
+               </div>
+            </div>
+         </div>
+
          <Tabs
             defaultValue={currentTab}
             onValueChange={setCurrentTab}
@@ -125,18 +150,13 @@ export default function NotFound() {
                      </CardContent>
                      <CardFooter className="align justify-between">
                         <Button
-                           variant="outline"
-                           className="w-2/5 bg-card border-primary/30"
+                           variant="ghost"
+                           className="w-2/5 border"
                            type="button"
                         >
                            Clear
                         </Button>
-                        <Button
-                           variant="outline"
-                           className="w-2/5"
-                           type="button"
-                           disabled
-                        >
+                        <Button className="w-2/5" type="button" disabled>
                            Go to Payment
                         </Button>
                      </CardFooter>
@@ -144,6 +164,7 @@ export default function NotFound() {
                </TabsContent>
             </div>
          </Tabs>
+
          <div className="relative -right-px col-start-2 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
          <div className="relative -left-px col-start-4 row-span-full row-start-1 border-x border-x-(--pattern-fg) bg-[image:repeating-linear-gradient(315deg,_var(--pattern-fg)_0,_var(--pattern-fg)_1px,_transparent_0,_transparent_50%)] bg-[size:10px_10px] bg-fixed"></div>
          <div className="relative -bottom-px col-span-full col-start-1 row-start-2 h-px bg-(--pattern-fg)"></div>

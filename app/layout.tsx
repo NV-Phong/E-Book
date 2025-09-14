@@ -11,6 +11,7 @@ import { Toaster } from "@/components/ui/sonner";
 import HiddenComponent from "@/components/ui-engineer/hidden-component";
 import Script from "next/script";
 import { ProfileProvider } from "@/context/profile-context";
+import { Footer } from "@/components/ui-engineer/layout/footer";
 
 const tomorrow = Tomorrow({
    subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({
                   <Spotlight />
                   <ProfileProvider>
                      {children}
+                     <Footer/>
                      <Toaster position="top-right" />
                   </ProfileProvider>
                   <HiddenComponent routes={["/themes/*"]}>
