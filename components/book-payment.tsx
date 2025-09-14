@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { usePayOS } from "@payos/payos-checkout";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { Separator } from "./ui/separator";
 import { CreditCard, QrCode, Smartphone, Shield, Clock } from "lucide-react";
 import Icon from "./ui-engineer/Icon";
+import { useBookPayment } from "@/hooks/book-payment";
+import { useEffect } from "react";
 
 interface BookPaymentProps {
    title: string;
@@ -15,47 +15,14 @@ interface BookPaymentProps {
 }
 
 export function BookPayment({ title, amount }: BookPaymentProps) {
-   const containerRef = useRef<HTMLDivElement>(null);
-   const [checkoutUrl, setCheckoutUrl] = useState("");
-   const [isLoading, setIsLoading] = useState(false);
-
-   const { open } = usePayOS({
-      ELEMENT_ID: "embedded-payment-container",
-      CHECKOUT_URL: checkoutUrl,
-      embedded: true,
-      RETURN_URL: window.location.href,
-      onSuccess: () => alert("Thanh toán thành công!"),
-   });
+   const { containerRef, checkoutUrl, isLoading, handlePayment } =
+      useBookPayment(title, amount);
 
    useEffect(() => {
       if (checkoutUrl && containerRef.current) {
-         open();
+         containerRef.current.scrollIntoView({ behavior: "smooth" });
       }
-   }, [checkoutUrl, open]);
-
-   const handlePayment = async () => {
-      setIsLoading(true);
-      try {
-         const res = await fetch("/api/next/payment", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-               orderCode: Number(String(Date.now()).slice(-6)),
-               amount,
-               description: title,
-               items: [{ name: title, quantity: 1, price: amount }],
-               returnUrl: window.location.href,
-               cancelUrl: window.location.href,
-            }),
-         });
-         const data = await res.json();
-         setCheckoutUrl(data.checkoutUrl);
-      } catch (err) {
-         console.error(err);
-      } finally {
-         setIsLoading(false);
-      }
-   };
+   }, [checkoutUrl, containerRef]);
 
    return (
       <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-primary/10">
@@ -75,7 +42,7 @@ export function BookPayment({ title, amount }: BookPaymentProps) {
                   <p className="text-2xl font-bold text-primary">
                      {amount.toLocaleString("vi-VN")} VND
                   </p>
-                  <Badge className="text-primary-foreground-darker uppercase text-[10px] bg-primary/10 rounded-sm border-primary/20">
+                  <Badge className="text-primary-foreground-1 uppercase text-[10px] bg-primary/10 rounded-sm border-primary/20">
                      <Icon
                         name="bitcoin"
                         styles="bulk"

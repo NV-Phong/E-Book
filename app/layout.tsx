@@ -7,7 +7,6 @@ import GradientBackground from "@/components/ui-engineer/layout/gradient-backgro
 import { Spotlight } from "@/components/aceternity/spotlight-new";
 import { Tomorrow } from "next/font/google";
 import { ContributionGraphProvider } from "@/context/cg-context";
-import { MusicPlayer } from "@/components/ui-engineer/layout/music-player";
 import { Toaster } from "@/components/ui/sonner";
 import HiddenComponent from "@/components/ui-engineer/hidden-component";
 import Script from "next/script";
@@ -40,7 +39,7 @@ export default function RootLayout({
          <body>
             <ThemeProvider
                attribute="class"
-               defaultTheme="pastel-orange"
+               defaultTheme="pastel-green"
                enableSystem
                disableTransitionOnChange
                themes={[
@@ -57,10 +56,7 @@ export default function RootLayout({
                   <Spotlight />
                   <ProfileProvider>
                      {children}
-                     <Toaster />
-                     <HiddenComponent routes={["/resume"]}>
-                        <MusicPlayer />
-                     </HiddenComponent>
+                     <Toaster position="top-right" />
                   </ProfileProvider>
                   <HiddenComponent routes={["/themes/*"]}>
                      <GradientBackground />

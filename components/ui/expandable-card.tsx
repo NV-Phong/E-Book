@@ -186,7 +186,7 @@ export function ExpandableCard({
                         >
                            {description}
                         </motion.p>
-                        <Badge className="text-primary-foreground-darker bg-primary/10 rounded-sm border-primary/20">
+                        <Badge className="text-primary bg-primary/10 rounded-sm border-primary/20">
                            {price ?? "2.000 VND"}
                         </Badge>
                      </div>
