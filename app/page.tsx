@@ -71,7 +71,6 @@ export default function NotFound() {
                            customers.
                         </CardDescription>
                      </CardHeader>
-
                      <CardContent className="space-y-2 p-0 flex justify-center">
                         <ExpandableCard
                            title="Bí Mật Của May Mắn"
